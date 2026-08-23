@@ -8,10 +8,9 @@ from dataclasses import dataclass
 import numpy as np
 from scipy.optimize import differential_evolution, minimize
 
-from .implied_vol import implied_vol
 from .pricing import smile
 
-__all__ = ["SurfaceQuote", "load_surface_csv", "calibrate"]
+__all__ = ["SurfaceQuote", "calibrate", "load_surface_csv"]
 
 
 @dataclass(frozen=True)
@@ -70,7 +69,7 @@ def calibrate(
     weights = weights / weights.mean()
 
     def loss(p):
-        xi0, eta, rho, H = p
+        xi0, _eta, _rho, H = p
         if not (1e-4 < xi0 < 4.0 and 0.05 < H < 0.5):
             return 1e6
         try:

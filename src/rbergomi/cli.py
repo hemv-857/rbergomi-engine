@@ -8,7 +8,7 @@ import json
 import numpy as np
 
 from .calibrate import SurfaceQuote, calibrate, load_surface_csv
-from .pricing import price_european, smile
+from .pricing import smile
 
 
 def _demo(args: argparse.Namespace) -> None:

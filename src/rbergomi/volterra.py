@@ -20,7 +20,7 @@ import numpy as np
 from numpy.polynomial.legendre import leggauss
 from scipy.special import roots_jacobi
 
-__all__ = ["joint_covariance", "simulate_volterra", "simulate_rbergomi"]
+__all__ = ["joint_covariance", "simulate_rbergomi", "simulate_volterra"]
 
 
 def joint_covariance(times: np.ndarray, H: float, nodes: int = 64) -> np.ndarray:

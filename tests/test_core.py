@@ -4,7 +4,7 @@ import pytest
 from rbergomi.calibrate import SurfaceQuote, calibrate
 from rbergomi.implied_vol import implied_vol
 from rbergomi.pricing import black_scholes, price_european, smile
-from rbergomi.volterra import joint_covariance, simulate_rbergomi, simulate_volterra
+from rbergomi.volterra import joint_covariance, simulate_volterra
 
 
 # ---------------------------------------------------------------- covariance
@@ -60,16 +60,16 @@ def test_put_call_parity():
 
 
 def test_control_variate_reduces_variance():
-    kw = dict(s0=1.0, xi0=0.18, eta=1.7, rho=-0.9, H=0.08, T=1.0,
-              n_steps=64, n_paths=20_000, seed=11)
+    kw = {"s0": 1.0, "xi0": 0.18, "eta": 1.7, "rho": -0.9, "H": 0.08, "T": 1.0,
+              "n_steps": 64, "n_paths": 20_000, "seed": 11}
     with_cv = price_european("call", 1.2, control_variate=True, **kw)
-    without = price_european("call", 1.2, control_variate=False, **kw)
+    price_european("call", 1.2, control_variate=False, **kw)
     assert with_cv["variance_reduction"] > 1.5  # OTM: terminal-value CV helps less than ATM
 
 
 def test_control_variate_unbiased():
-    kw = dict(s0=1.0, xi0=0.18, eta=1.7, rho=-0.9, H=0.08, T=0.5,
-              n_steps=64, n_paths=40_000, seed=13)
+    kw = {"s0": 1.0, "xi0": 0.18, "eta": 1.7, "rho": -0.9, "H": 0.08, "T": 0.5,
+              "n_steps": 64, "n_paths": 40_000, "seed": 13}
     cv = price_european("call", 1.0, control_variate=True, **kw)["price"]
     raw = price_european("call", 1.0, control_variate=False, **kw)
     assert abs(cv - raw["price"]) < 6 * raw["stderr"]
