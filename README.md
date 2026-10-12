@@ -1,5 +1,7 @@
 # rbergomi-engine
 
+<a href="https://github.com/hemv-857/rbergomi-engine/actions/workflows/ci.yml"><img src="https://github.com/hemv-857/rbergomi-engine/actions/workflows/ci.yml/badge.svg" alt="rbergomi-engine CI"></a> <a href="https://github.com/hemv-857/rbergomi-engine/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a> <img src="https://img.shields.io/badge/Python-3776AB.svg" alt="Python">
+
 Simulation, pricing and calibration under the **rough Bergomi** model:
 
 ```
@@ -39,3 +41,7 @@ make calibrate     # fit params to a synthetic target surface, print recovered t
 
 - `ponytail:` forward variance is flat (`xi0` const); term structure of `xi0(t)` is the natural next step.
 - Market-data ingestion is a CSV loader (`--surface quotes.csv`: `T,K,iv_mid,vega`) — wire your data vendor in one function.
+
+## License
+
+[LICENSE](https://github.com/hemv-857/rbergomi-engine/blob/master/LICENSE) — see the file for the full text.
