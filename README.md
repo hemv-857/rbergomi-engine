@@ -42,6 +42,10 @@ make calibrate     # fit params to a synthetic target surface, print recovered t
 - `ponytail:` forward variance is flat (`xi0` const); term structure of `xi0(t)` is the natural next step.
 - Market-data ingestion is a CSV loader (`--surface quotes.csv`: `T,K,iv_mid,vega`) — wire your data vendor in one function.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 [LICENSE](https://github.com/hemv-857/rbergomi-engine/blob/master/LICENSE) — see the file for the full text.
